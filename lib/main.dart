@@ -11,28 +11,25 @@ class MyApp extends StatelessWidget {
     "Mark Zuckerberg",
     "Linus Torvalds",
     "Brendan Eich",
+    "Elon Musk",
+    "Thomas Edison",
   ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: people
-              .map((person) => Container(
-                    margin: EdgeInsets.only(top: 30.0),
-                    padding: EdgeInsets.symmetric(vertical: 40.0),
-                    child: Text(
-                      person,
-                      style: TextStyle(fontSize: 25.0),
-                    ),
-                  ))
-              .toList(),
-        ),
+        body: ListView.builder(
+            itemCount: people.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(top: 30.0),
+                padding: EdgeInsets.symmetric(vertical: 40.0),
+                child: Text(
+                  people[index],
+                  style: TextStyle(fontSize: 25.0),
+                ),
+              );
+            }),
       ),
     );
   }
